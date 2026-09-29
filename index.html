@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Allan Maina | Private Chauffeur in Nairobi</title>
+<meta name="description" content="Allan Maina, professional personal chauffeur for hire in Nairobi. Discreet driving, minor car repairs and TV mounting. Book on WhatsApp." />
+<meta name="theme-color" content="#202020" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Allan Maina | Private Chauffeur in Nairobi" />
+<meta property="og:description" content="Punctual, discreet driving across Nairobi. JKIA runs, meetings, events and school runs. Minor repairs and TV mounting too." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80" />
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+
+<!-- Monogram favicon, inline so the page ships as a single file -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23202020'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-size='19' font-weight='700' fill='%23ffc000' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400&family=Geist+Mono:wght@400..600&family=Open+Sans:wght@400&display=swap" rel="stylesheet" />
+
+<style>
+/* ---------------------------------------------------------------
+   Tokens
+   Theme lock: dark only, one accent (rust), one gray family (cool).
+   Radius rule: media and cards 14px, interactive controls full pill.
+   z-index scale: nav 50, floating action 60, skip link 100.
+----------------------------------------------------------------*/
+:root{
+  --bg:#0e0f10;
+  --surface:#16181a;
+  --surface-2:#1d2023;
+  --ink:#e9e7e3;
+  --muted:#9a9ea4;
+  --accent:#d2694a;
+  --accent-hi:#e07d5e;
+  --line:rgba(233,231,227,.10);
+  --line-str:rgba(233,231,227,.20);
+  --display:"Archivo",system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,monospace;
+  --r-media:14px;
+  --r-pill:999px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --pad-x:clamp(1.25rem,6vw,6rem);
+  --gap-y:clamp(4.5rem,10vw,9rem);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--display);
+  font-size:clamp(1rem,.97rem + .15vw,1.075rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px;border-radius:4px}
+
+/* Grain, fixed so it never repaints on scroll */
+body::after{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.skip{
+  position:absolute;left:1rem;top:-100px;z-index:100;
+  background:var(--ink);color:#101112;padding:.7rem 1.1rem;border-radius:var(--r-pill);
+  font-weight:600;text-decoration:none;transition:top .2s var(--ease);
+}
+.skip:focus{top:1rem}
+
+/* ---------------- Type scale ---------------- */
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:600;
+  font-stretch:104%;
+  letter-spacing:-.028em;
+  text-wrap:balance;
+}
+h1{font-size:clamp(2.5rem,5.4vw,4.5rem);line-height:1.04}
+h2{font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.08}
+h3{font-size:clamp(1.2rem,1.6vw,1.4rem);line-height:1.2;letter-spacing:-.018em}
+p{text-wrap:pretty}
+.lede{color:var(--muted);font-size:clamp(1.02rem,1.2vw,1.15rem);max-width:34rem}
+.meta{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
+
+/* ---------------- Buttons ---------------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;white-space:nowrap;
+  padding:.9rem 1.5rem;border-radius:var(--r-pill);
+  font-weight:600;font-size:.95rem;line-height:1;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;
+  transition:transform .25s var(--ease),background-color .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.btn-primary{background:var(--accent);color:#180d09}
+.btn-primary:hover{background:var(--accent-hi);transform:translateY(-2px);box-shadow:0 12px 28px rgba(8,9,10,.65)}
+.btn-primary:active{transform:translateY(0) scale(.985)}
+.btn-ghost{border-color:var(--line-str);color:var(--ink)}
+.btn-ghost:hover{background:rgba(233,231,227,.07);transform:translateY(-2px)}
+.btn-ghost:active{transform:translateY(0) scale(.985)}
+.btn-sm{padding:.65rem 1.15rem;font-size:.88rem}
+.btn-lg{padding:1.05rem 1.9rem;font-size:1rem}
+
+/* ---------------- Nav ---------------- */
+#nav-sentinel{position:absolute;top:48px;left:0;width:1px;height:1px}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  height:72px;padding:0 var(--pad-x);
+  transition:background-color .35s var(--ease),border-color .35s var(--ease),height .35s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  height:64px;
+  background:rgba(14,15,16,.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom-color:var(--line);
+}
+.brand{font-weight:700;font-size:1.15rem;letter-spacing:-.02em;text-decoration:none;font-stretch:104%}
+.brand b{font-weight:400;color:var(--muted)}
+.nav-links{display:flex;gap:1.9rem;align-items:center}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500;
+  transition:color .2s var(--ease);
+}
+.nav-links a:hover{color:var(--ink)}
+.burger{display:none;background:none;border:0;padding:.5rem;cursor:pointer}
+.burger span{display:block;width:24px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease),opacity .2s var(--ease)}
+.burger span+span{margin-top:6px}
+.nav.open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------------- Hero ----------------
+   House rule: the hero image always fills the whole hero section
+   and the copy rides in one minimal card beside it. Never a split column.
+----------------------------------------*/
+.hero{
+  position:relative;
+  min-height:100dvh;
+  display:grid;
+  align-items:center;
+  padding:6rem var(--pad-x) 4rem;
+  overflow:hidden;
+  background:var(--surface-2);
+}
+.hero-img{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:62% center;
+}
+.hero-compare{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--surface-2)}
+.hero-compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-compare .compare-after{clip-path:inset(0 calc(100% - var(--compare-position)) 0 0)}
+/* Scrim weighted toward the card so the copy always clears AA contrast */
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(14,15,16,.93) 0%,rgba(14,15,16,.70) 36%,rgba(14,15,16,.24) 66%,rgba(14,15,16,.50) 100%),
+    linear-gradient(180deg,rgba(14,15,16,.70) 0%,rgba(14,15,16,0) 32%);
+}
+/* Frosted glass approximation. Apple documents Liquid Glass for Apple
+   platforms only, there is no official web package, so this is layered
+   backdrop-filter plus specular edges standing in for the real material.
+   Tint stays dark on purpose: the copy has to hold AA over the photo. */
+.hero-card{
+  position:relative;z-index:2;
+  isolation:isolate;
+  width:min(30rem,100%);
+  padding:clamp(1.6rem,2.6vw,2.3rem);
+  border:1px solid rgba(233,231,227,.20);
+  border-radius:var(--r-media);
+  background:
+    linear-gradient(150deg,rgba(233,231,227,.07) 0%,rgba(233,231,227,.02) 32%,transparent 64%),
+    rgba(13,14,15,.74);
+  backdrop-filter:blur(28px) saturate(180%) contrast(1.05);
+  -webkit-backdrop-filter:blur(28px) saturate(180%) contrast(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(255,255,255,.05),
+    0 26px 64px rgba(6,7,8,.58);
+}
+/* Specular catch along the top edge only. Kept in the padding band and off
+   the body copy, because a white veil over grey text fails AA fast. */
+.hero-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:38%;z-index:-1;
+  border-radius:var(--r-media) var(--r-media) 0 0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),transparent);
+}
+/* Second hairline just inside the edge, where glass catches light twice */
+.hero-card::after{
+  content:"";position:absolute;inset:1px;
+  border-radius:inherit;pointer-events:none;
+  border:1px solid rgba(255,255,255,.07);
+}
+.hero-card h1{font-size:clamp(1.7rem,2.9vw,2.4rem);margin-bottom:.9rem}
+/* Brighter than --muted: the glass sits over a photo, so the copy needs headroom */
+.hero-card .lede{font-size:1rem;max-width:none;margin-bottom:1.7rem;color:rgba(233,231,227,.85)}
+.hero-cta{display:flex;gap:.7rem;flex-wrap:wrap}
+/* Solid fallback where the browser refuses translucency */
+@media (prefers-reduced-transparency:reduce){
+  .hero-card{
+    background:rgba(14,15,16,.96);
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+    box-shadow:0 24px 60px rgba(6,7,8,.55);
+  }
+  .hero-card::before{display:none}
+}
+
+/* ---------------- Statement band ---------------- */
+.band{
+  border-block:1px solid var(--line);
+  padding:clamp(3rem,6vw,5rem) var(--pad-x);
+}
+.band p{
+  font-size:clamp(1.35rem,2.7vw,2.15rem);
+  line-height:1.28;
+  letter-spacing:-.02em;
+  font-weight:500;
+  font-stretch:104%;
+  max-width:24ch;
+  color:var(--muted);
+}
+.band strong{font-weight:600;color:var(--ink)}
+
+/* ---------------- Section shell ---------------- */
+section{padding:var(--gap-y) var(--pad-x);scroll-margin-top:80px}
+.section-head{max-width:44rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.section-head p{color:var(--muted);margin-top:1rem;max-width:38rem}
+
+/* ---------------- Services: 3 cell bento ---------------- */
+.svc-grid{
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  grid-template-rows:auto auto;
+  gap:1.1rem;
+}
+.svc{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-media);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+}
+/* Scoped one level deeper so the hover lift outranks .reveal.in below */
+.svc-grid .svc{transition:transform .5s var(--ease),border-color .35s var(--ease),opacity .8s var(--ease)}
+.svc-grid .svc:hover{transform:translateY(-5px);border-color:var(--line-str)}
+.svc-media{overflow:hidden;background:var(--surface-2)}
+.svc-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.svc:hover .svc-media img{transform:scale(1.04)}
+.svc-body{padding:1.6rem 1.6rem 1.8rem}
+.svc-body p{color:var(--muted);font-size:.97rem;margin-top:.6rem}
+.svc-pricing{margin-top:1rem}
+.svc-pricing h4{font-size:.9rem;font-weight:500;text-transform:uppercase}
+.rate-list{list-style:none;margin:.45rem 0 0}
+.rate-list li{display:flex;justify-content:space-between;gap:.75rem;padding:.35rem 0;border-top:1px solid rgba(255,255,255,.22);font-size:.9rem;line-height:1.35}
+.rate-list li span:last-child{white-space:nowrap;text-align:right}
+.svc-pricing .rate-note{margin-top:.65rem;font-size:.8rem;line-height:1.4;opacity:.76}
+.svc-lead{grid-row:span 2}
+.svc-lead .svc-media{flex:1;min-height:320px}
+.svc-lead .svc-body{padding:2rem}
+.svc-lead h3{font-size:clamp(1.45rem,2vw,1.8rem)}
+.svc-min{display:grid;grid-template-columns:minmax(140px,.8fr) 1.2fr}
+.svc-min .svc-media{min-height:180px}
+
+/* ---------------- About: split ---------------- */
+.about{
+  display:grid;
+  grid-template-columns:.92fr 1.08fr;
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:center;
+}
+.about-media{border-radius:var(--r-media);overflow:hidden;background:var(--surface-2)}
+.about-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-text p{color:var(--muted);margin-top:1.1rem;max-width:38rem}
+.ticks{list-style:none;margin-top:2.4rem;max-width:26rem}
+.ticks li{
+  border-top:1px solid var(--line);
+  padding:.95rem 0;
+  font-weight:500;
+  font-size:.98rem;
+}
+
+/* ---------------- Work: smooth gallery ---------------- */
+.gallery{
+  position:relative;
+  width:100%;height:clamp(320px,40vw,450px);
+  overflow:hidden;touch-action:pan-y;cursor:grab;
+  background:var(--surface-2);
+}
+.gallery.is-dragging{cursor:grabbing}
+.g-item{
+  position:absolute;top:50%;left:0;
+  width:clamp(220px,31vw,400px);height:clamp(260px,36vw,400px);
+  overflow:hidden;background:var(--surface-2);pointer-events:none;
+  will-change:transform,filter;
+}
+.g-item img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.85);user-select:none;-webkit-user-drag:none}
+.compare-divider{position:absolute;z-index:2;top:0;bottom:0;left:var(--compare-position);width:2px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.compare-handle{position:absolute;z-index:3;left:var(--compare-position);top:50%;width:44px;height:44px;border:2px solid #fff;border-radius:50%;background:var(--accent);transform:translate(-50%,-50%);pointer-events:none}
+.compare-label{position:absolute;z-index:3;top:1rem;padding:.4rem .7rem;background:rgba(32,32,32,.78);color:#fff;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.compare-label-before{left:1rem}.compare-label-after{right:1rem}
+.compare-control{position:absolute;z-index:4;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y}
+.compare-control:focus-visible{outline:2px solid #fff;outline-offset:-6px}
+
+/* ---------------- Reviews: offset quote stagger ---------------- */
+.quotes{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(2rem,4vw,3.5rem) 2rem}
+.quotes blockquote{border-left:2px solid var(--accent);padding-left:1.5rem}
+.quotes p{font-size:clamp(1.1rem,1.5vw,1.35rem);line-height:1.45;letter-spacing:-.012em}
+.quotes footer{margin-top:1.1rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;color:var(--muted)}
+.quotes footer b{display:block;font-weight:500;color:var(--ink);letter-spacing:.02em;margin-bottom:.15rem}
+.quotes blockquote:nth-child(1){grid-column:1/7}
+.quotes blockquote:nth-child(2){grid-column:7/13;margin-top:clamp(0rem,4vw,3.5rem)}
+.quotes blockquote:nth-child(3){grid-column:3/10;margin-top:clamp(0rem,2vw,1.5rem)}
+
+/* ---------------- Contact ---------------- */
+.contact{position:relative;overflow:hidden;text-align:center}
+.contact-bg{position:absolute;inset:0;z-index:0;background:var(--surface-2)}
+/* Landscape source, car sits just below centre, so bias the crop down slightly */
+.contact-bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+/* Densest behind the copy, easing off at the edges so the car stays visible */
+.contact-bg::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(78% 68% at 50% 50%,rgba(14,15,16,.93) 0%,rgba(14,15,16,.80) 58%,rgba(14,15,16,.62) 100%);
+}
+.contact-inner{position:relative;z-index:2;max-width:40rem;margin:0 auto;display:grid;justify-items:center}
+/* Same reasoning as the hero card: copy over a photo needs headroom on --muted */
+.contact-inner p{color:rgba(233,231,227,.85);margin:1.1rem 0 2.2rem;max-width:32rem}
+.contact-phone{
+  margin-top:1.5rem;font-family:var(--mono);font-size:.9rem;letter-spacing:.06em;
+  color:var(--muted);text-decoration:none;transition:color .2s var(--ease);
+}
+.contact-phone:hover{color:var(--ink)}
+.contact-pay{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:.9rem 0 0;opacity:.75}
+
+/* ---------------- Footer ---------------- */
+.foot{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem 2rem;flex-wrap:wrap;
+  padding:2.2rem var(--pad-x);border-top:1px solid var(--line);
+  font-size:.88rem;color:var(--muted);
+}
+.foot a{color:var(--accent);text-decoration:none;font-weight:600;transition:color .2s var(--ease)}
+.foot a:hover{color:var(--accent-hi)}
+
+/* ---------------- Floating WhatsApp ---------------- */
+.wa-float{
+  position:fixed;right:1.35rem;bottom:1.35rem;z-index:60;
+  width:56px;height:56px;border-radius:var(--r-pill);
+  background:var(--accent);display:grid;place-items:center;
+  box-shadow:0 10px 30px rgba(8,9,10,.6);
+  transition:transform .3s var(--ease),background-color .3s var(--ease);
+}
+.wa-float:hover{background:var(--accent-hi);transform:translateY(-3px)}
+.wa-float:active{transform:translateY(0) scale(.96)}
+
+/* ---------------- Reveal ---------------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.stagger>.reveal:nth-child(2){transition-delay:80ms}
+.stagger>.reveal:nth-child(3){transition-delay:160ms}
+.stagger>.reveal:nth-child(4){transition-delay:240ms}
+.stagger>.reveal:nth-child(5){transition-delay:320ms}
+.stagger>.reveal:nth-child(6){transition-delay:400ms}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width:1000px){
+  .nav-links,.nav .btn-sm{display:none}
+  .burger{display:block}
+  .nav.open{background:rgba(14,15,16,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .nav.open .nav-links{
+    display:flex;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:1.2rem;
+    padding:1.6rem var(--pad-x) 2rem;
+    background:rgba(14,15,16,.96);border-bottom:1px solid var(--line);
+  }
+  .nav.open .nav-links a{font-size:1.1rem;color:var(--ink)}
+
+  .hero{align-items:end;padding:7rem var(--pad-x) 3rem}
+  .hero-img{object-position:center top}
+  .hero::after{
+    background:linear-gradient(180deg,rgba(14,15,16,.62) 0%,rgba(14,15,16,.20) 26%,rgba(14,15,16,.90) 74%);
+  }
+  .hero-card{width:100%}
+
+  .svc-grid{grid-template-columns:1fr;grid-template-rows:none}
+  .svc-lead{grid-row:auto}
+  .svc-lead .svc-media{min-height:260px}
+  .about{grid-template-columns:1fr}
+  .about-media img{aspect-ratio:3/2}
+  .quotes blockquote:nth-child(1),
+  .quotes blockquote:nth-child(2),
+  .quotes blockquote:nth-child(3){grid-column:1/-1;margin-top:0}
+}
+@media (max-width:640px){
+  .band p{max-width:none}
+  .svc-min{grid-template-columns:1fr}
+  .svc-min .svc-media{min-height:200px}
+  .hero-cta .btn{flex:1 1 auto;justify-content:center}
+  .foot{flex-direction:column;align-items:flex-start}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+
+/* Showroom direction: hard edges, monochrome surfaces and one yellow booking signal. */
+:root{
+  --bg:#000;--surface:#f5f5f5;--surface-2:#202020;--ink:#202020;--muted:#494949;
+  --accent:#ffc000;--accent-hi:#917300;--line:rgba(32,32,32,.18);--line-str:#7d7d7d;
+  --display:"Barlow Condensed","Archivo Narrow",Arial,sans-serif;--r-media:0px;--r-pill:0px;
+  --pad-x:clamp(1.25rem,5vw,5rem);--gap-y:clamp(4rem,8vw,8rem)
+}
+body{background:#fff;color:var(--ink);font-family:var(--display);font-stretch:condensed;letter-spacing:.023em;line-height:1.5}
+body::after{display:none}
+h1,h2,h3,.brand,.nav-links a,.btn,.meta,.contact-pay{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.023em}
+h1,h2,h3{font-stretch:condensed;letter-spacing:.023em}
+h1{font-size:clamp(3.6rem,8.5vw,8rem);line-height:.92}
+h2{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1}
+h3{font-size:clamp(1.45rem,2.4vw,2rem);line-height:1.05}
+.skip{border-radius:0;background:var(--accent);color:#000}
+.nav{height:64px;padding-inline:var(--pad-x);background:rgba(32,32,32,.52);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid rgba(255,255,255,.16);color:#fff}
+.nav.scrolled{height:64px;background:rgba(24,24,24,.74);border-bottom-color:rgba(255,255,255,.16)}
+.brand{position:absolute;left:50%;transform:translateX(-50%);color:#fff;font-size:1.05rem;letter-spacing:.16em}
+.brand{display:flex;align-items:center;gap:.65rem}
+.brand-logo{display:block;width:40px;height:40px;object-fit:contain}
+.brand b{color:#fff}.nav-links{gap:1.5rem}.nav-links a{color:#fff;font-size:.75rem}
+.nav>.btn-primary{order:3}
+.burger{display:flex;flex-direction:column;padding:.5rem 0}.burger span{background:#fff;width:22px}
+.btn{border-radius:0;padding:.9rem 1.35rem;font-size:.8rem;line-height:1.1;box-shadow:none}
+.btn-primary{background:var(--accent);color:#000}.btn-primary:hover{background:#ffd24d;transform:none;box-shadow:none}
+.btn-ghost{border:0;color:inherit;padding-inline:0}.btn-ghost:hover{background:none;transform:none;color:var(--accent)}.btn-lg{padding:1rem 1.5rem}
+.hero{min-height:100dvh;padding:7rem var(--pad-x) 4rem;background:#202020}
+.hero::after{background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.3) 58%,rgba(0,0,0,.3) 100%),linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.22))}
+.hero-img{object-fit:cover;object-position:center top;filter:saturate(.8) contrast(1.08)}
+.hero-card{width:min(38rem,100%);padding:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.hero-card::before,.hero-card::after{display:none}.hero-card h1{color:#fff;max-width:13ch;margin-bottom:1.2rem}
+.hero-card .lede{max-width:30rem;color:rgba(255,255,255,.88);font-size:1rem;margin-bottom:2rem}
+.band{border-block:0;background:#f5f5f5;padding-block:clamp(3rem,7vw,6rem)}
+.band p{color:#494949;max-width:30ch;font-size:clamp(1.6rem,3.5vw,3rem);line-height:1.08;letter-spacing:.023em}.band strong{color:#202020}
+section{padding-block:var(--gap-y)}
+.section-head{max-width:none;display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:3rem}.section-head p{max-width:32rem;color:#494949;margin:0}
+.services,.work,.reviews{background:#fff}.svc-grid{gap:1.5rem}.svc{background:#f5f5f5;border:0;border-radius:0}.svc-grid .svc:hover{transform:none;border-color:transparent}
+.svc-media{border-radius:0;background:#202020}.svc-media img{filter:saturate(.7) contrast(1.05)}.svc:hover .svc-media img{transform:scale(1.02)}
+.svc-body{padding:1.5rem 0 0;background:#fff}.svc-body p{color:#494949;font-size:1rem;margin-top:.8rem;max-width:32rem}.svc-lead .svc-media{min-height:28rem}
+.svc-min{background:#f5f5f5;grid-template-columns:1fr}.svc-min .svc-media{min-height:13rem}.svc-min .svc-body{padding:1.25rem 1.5rem 1.5rem;background:#f5f5f5}
+.about{background:#202020;color:#fff;padding-inline:var(--pad-x)}.about-media{border-radius:0;background:#000}.about-media img{filter:grayscale(1) contrast(1.1)}
+.about-text p{color:rgba(255,255,255,.75);max-width:36rem}.ticks{max-width:36rem}.ticks li{border-top-color:rgba(255,255,255,.25);font-size:.85rem;text-transform:uppercase;letter-spacing:.023em}
+.g-item{border-radius:0}.g-item img{filter:grayscale(1) saturate(.4)}
+.quotes blockquote{border-left:2px solid var(--accent);padding-left:1.25rem}.quotes p{font-size:clamp(1.25rem,2vw,1.75rem);line-height:1.15}.quotes footer{font-family:var(--display);text-transform:uppercase;letter-spacing:.023em;color:#7d7d7d}.quotes footer b{font-weight:400;color:#202020}
+.contact{background:#000;min-height:34rem;display:grid;align-items:center}.contact-bg{background:#202020}.contact-bg img{filter:grayscale(1);opacity:.6}.contact-bg::after{background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.52))}
+.contact-inner h2{color:#fff;max-width:10ch}.contact-inner p{color:rgba(255,255,255,.78)}.contact-phone{font-family:var(--mono);color:#fff}.contact-phone:hover{color:var(--accent)}.contact-pay{color:#fff}
+.foot{background:#181818;border-top:0;color:#969696;font-family:var(--display);text-transform:uppercase;font-size:.75rem;letter-spacing:.023em}.foot a{color:var(--accent);font-weight:400}
+.wa-float{border-radius:0;background:var(--accent);box-shadow:none;width:52px;height:52px}.wa-float:hover{background:#ffd24d;transform:none}
+@media (max-width:1000px){.nav>.btn-primary{display:none}.nav.open{background:#181818;backdrop-filter:none;-webkit-backdrop-filter:none}.nav.open .nav-links{background:#181818;border-bottom:0}.nav.open .nav-links a{font-size:1rem;color:#fff}.hero{padding-top:7rem}.hero-card h1{font-size:clamp(3.2rem,12vw,6rem)}.section-head{display:block}.section-head p{margin-top:1.25rem}}
+@media (max-width:640px){.brand{font-size:.86rem}.hero-card h1{max-width:none;font-size:clamp(2.8rem,12vw,4.8rem)}.svc-lead .svc-media{min-height:18rem}.contact{min-height:30rem}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* Reference lock: showroom navigation and alternating stage surfaces. */
+body{font-family:"Open Sans",Arial,sans-serif;letter-spacing:0}
+:focus-visible{border-radius:0}
+h1,h2,h3,.brand,.nav-links a,.btn,.meta,.contact-pay{font-family:"Barlow Condensed",Arial,sans-serif;letter-spacing:.023em}
+h1,h2,h3,.brand,.nav-links a,.btn,.meta,.contact-pay{text-transform:uppercase}
+.nav{justify-content:space-between}
+.nav-links{display:none}
+.burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:none;border:0;color:#fff;padding:0;cursor:pointer}
+.burger-lines{display:flex!important;flex-direction:column;gap:5px;width:22px;height:18px;background:none!important}
+.burger-lines i{display:block;width:22px;height:1px;background:#fff}
+.nav.open .nav-links{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;padding:0 var(--pad-x) 24px;background:#202020;border-top:1px solid #494949}
+.nav.open .nav-links a{padding:16px 0;color:#fff;font-size:16px}
+.nav.open .burger-lines i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.open .burger-lines i:nth-child(2){opacity:0}.nav.open .burger-lines i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.hero::after{background:rgba(0,0,0,.48)}
+.hero-card h1{width:100%;font-size:clamp(4.5rem,9vw,7.5rem);max-width:none}
+.hero-card .lede{font-family:"Open Sans",Arial,sans-serif;letter-spacing:0}
+.band{background:#f5f5f5}
+.services{background:#202020;color:#fff}
+.services .section-head p{color:#fff;opacity:.72}
+.services .svc{background:#202020}
+.services .svc-body,.services .svc-min .svc-body{background:#202020;padding-inline:0}
+.services .svc-min .svc-body{padding-inline:24px}
+.services .svc-body p{color:#fff;opacity:.72}
+.services .svc-media{background:#000}
+.about{background:#fff;color:#202020}
+.about-text p{color:#313131}
+.ticks li{border-top-color:#969696;color:#202020}
+.contact-bg::after{background:rgba(0,0,0,.62)}
+.contact-inner p{font-family:"Open Sans",Arial,sans-serif;letter-spacing:0}
+@media (min-width:641px){
+  .hero{align-items:center;padding:7rem var(--pad-x) 4rem}
+  .hero-compare img{object-position:center 8%}
+}
+@media (min-width:1001px){
+  .nav-links{display:flex}
+  .burger{display:none}
+  .hero-compare img{object-position:center 4%}
+}
+@media (max-width:1000px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav.open .nav-links{display:flex}
+}
+@media (max-width:1000px){.nav>.btn-primary{display:inline-flex}.hero-card h1{font-size:clamp(3.8rem,12vw,6.5rem)}}
+@media (max-width:640px){.nav>.btn-primary{display:none}.hero-card h1{font-size:clamp(3.2rem,15vw,5rem)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="nav-sentinel" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a href="#home" class="brand"><img class="brand-logo" src="assets/logo.jpeg" alt="" width="40" height="40" />Allan <b>Maina</b></a>
+  <nav class="nav-links" id="nav-links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <a class="btn btn-primary btn-sm" href="https://wa.me/254707528291?text=Hi%20Allan%2C%20I%27d%20like%20to%20book%20a%20ride." target="_blank" rel="noopener">Book on WhatsApp</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+    <span class="burger-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+</header>
+
+<main id="main">
+
+<section class="hero" id="home">
+  <figure class="hero-compare" id="photo-compare" style="--compare-position:50%">
+    <img class="hero-img" src="assets/allan1%20(1).jpeg" alt="Allan 1 photo" width="738" height="1600" fetchpriority="high" />
+    <img class="compare-after" src="assets/allan3.jpg" alt="Allan 3 photo" width="704" height="1527" fetchpriority="high" />
+    <span class="compare-label compare-label-before" aria-hidden="true">Allan 3</span>
+    <span class="compare-label compare-label-after" aria-hidden="true">Allan 1</span>
+    <span class="compare-divider" aria-hidden="true"></span>
+    <span class="compare-handle" aria-hidden="true"></span>
+    <input class="compare-control" type="range" min="0" max="100" value="50" aria-label="Reveal Allan 3 photo over Allan 1" />
+  </figure>
+  <div class="hero-card reveal">
+    <h1>Calm. Clean. On time.</h1>
+    <p class="lede">Private chauffeur for JKIA runs, meetings and long days on the road. Minor repairs and TV mounting too.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="https://wa.me/254707528291?text=Hi%20Allan%2C%20I%27d%20like%20to%20book%20a%20ride." target="_blank" rel="noopener">Book on WhatsApp</a>
+      <a class="btn btn-ghost btn-lg" href="#services">See what I do</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-label="What Allan drives for">
+  <p class="reveal"><strong>JKIA transfers, business meetings, events and school runs,</strong> or a full day at your service.</p>
+</section>
+
+<section class="services" id="services" aria-labelledby="services-h">
+  <div class="section-head reveal">
+    <h2 id="services-h">Three things, done properly.</h2>
+    <p>One dependable person for the driving, the small fixes and the wall mount. No handing you off to someone else.</p>
+  </div>
+
+  <div class="svc-grid stagger">
+    <article class="svc svc-lead reveal">
+      <div class="svc-media">
+        <img src="https://images.pexels.com/photos/6698365/pexels-photo-6698365.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A saloon car moving through city lights at night" loading="lazy" />
+      </div>
+      <div class="svc-body">
+        <h3>Personal chauffeur</h3>
+        <p>JKIA and Wilson runs, business meetings, events, school runs or a full day at your service. Smart dress, safe driving, absolute discretion.</p>
+      </div>
+    </article>
+
+    <article class="svc svc-min reveal">
+      <div class="svc-media">
+        <img src="https://images.pexels.com/photos/36742923/pexels-photo-36742923.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A clean engine bay with the bonnet raised" loading="lazy" />
+      </div>
+      <div class="svc-body">
+        <h3>Minor car repairs</h3>
+        <p>Battery, brakes, fluids, bulbs and tyres. The small fixes that keep you moving, with no surprise bills.</p>
+      </div>
+    </article>
+
+    <article class="svc svc-min reveal">
+      <div class="svc-media">
+        <img src="https://images.unsplash.com/photo-1612965607446-25e1332775ae?w=800&q=80" alt="A flat screen television mounted on a living room wall" loading="lazy" />
+      </div>
+      <div class="svc-body">
+        <h3>TV mounting</h3>
+        <p>Clean, level and secure. Any wall, any size, cables tidied and the screen exactly where you want it.</p>
+        <div class="svc-pricing">
+          <h4>Starting prices (KES)</h4>
+          <ul class="rate-list" aria-label="TV mounting prices by screen size">
+            <li><span>Up to 32 in</span><span>1,000 - 1,500</span></li>
+            <li><span>33 - 42 in</span><span>1,400 - 1,800</span></li>
+            <li><span>43 - 55 in</span><span>2,000 - 2,500</span></li>
+            <li><span>56 - 65 in</span><span>2,700 - 3,200</span></li>
+            <li><span>66 - 75 in</span><span>3,300 - 3,800</span></li>
+            <li><span>76 in and above</span><span>3,800 - 4,500</span></li>
+          </ul>
+          <p class="rate-note">Prices vary by TV size, wall type, and location.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="about-media reveal">
+    <!-- Replace this src with Allan's own photo (allan.jpg) -->
+    <img src="https://images.unsplash.com/photo-1618418721668-0d1f72aa4bab?w=1000&q=80" alt="A saloon car photographed at night, washed and ready for the day" loading="lazy" />
+  </div>
+  <div class="about-text reveal">
+    <h2 id="about-h">Reliable hands, a calm drive.</h2>
+    <p>I have spent years on Nairobi's roads and know them like the back of my hand. Clients hire me because I show up on time, keep their business private, and treat every car like my own.</p>
+    <p>Whether you need a driver for the week, a quick repair before a trip, or a TV mounted at home, you get one person who does it right the first time.</p>
+    <ul class="ticks">
+      <li>Licensed and experienced</li>
+      <li>Discreet and professional</li>
+      <li>Flexible hours, fair rates</li>
+    </ul>
+  </div>
+</section>
+
+<section class="work" id="work" aria-labelledby="work-h">
+  <div class="section-head reveal">
+    <h2 id="work-h">On the road.</h2>
+  </div>
+  <div class="gallery reveal" id="photo-gallery" role="region" aria-label="Photo gallery" aria-roledescription="carousel" tabindex="0">
+    <div class="g-item" role="group" aria-roledescription="slide" aria-label="1 of 6"><img src="https://images.pexels.com/photos/36798017/pexels-photo-36798017.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Nairobi skyline at night behind the hangars at Wilson Airport" loading="lazy" /></div>
+    <div class="g-item" role="group" aria-roledescription="slide" aria-label="2 of 6"><img src="https://images.unsplash.com/photo-1687634366070-c06d3f037154?w=900&q=80" alt="The rear seats of a car with the door open" loading="lazy" /></div>
+    <div class="g-item" role="group" aria-roledescription="slide" aria-label="3 of 6"><img src="https://images.pexels.com/photos/15496542/pexels-photo-15496542.jpeg?auto=compress&cs=tinysrgb&w=900" alt="The Nairobi Expressway curving past the city skyline" loading="lazy" /></div>
+    <div class="g-item" role="group" aria-roledescription="slide" aria-label="4 of 6"><img src="https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=900&q=80" alt="A wall mounted television with the cables tidied away" loading="lazy" /></div>
+    <div class="g-item" role="group" aria-roledescription="slide" aria-label="5 of 6"><img src="https://images.unsplash.com/photo-1567808291548-fc3ee04dbcf0?w=900&q=80" alt="A dark saloon car parked under overhead lights" loading="lazy" /></div>
+    <div class="g-item" role="group" aria-roledescription="slide" aria-label="6 of 6"><img src="https://images.unsplash.com/photo-1502014335594-c026800f24ee?w=900&q=80" alt="The dashboard and steering wheel of a clean car interior" loading="lazy" /></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews" aria-labelledby="reviews-h">
+  <div class="section-head reveal">
+    <h2 id="reviews-h">Clients keep coming back.</h2>
+  </div>
+  <div class="quotes stagger">
+    <blockquote class="reveal">
+      <p>"Allan is the most reliable driver I have ever hired. Always early, always calm in traffic."</p>
+      <footer><b>Wanjiru K.</b>Westlands</footer>
+    </blockquote>
+    <blockquote class="reveal">
+      <p>"Fixed my brakes and got me to the airport the same morning. A total lifesaver."</p>
+      <footer><b>David O.</b>Karen</footer>
+    </blockquote>
+    <blockquote class="reveal">
+      <p>"Mounted two TVs perfectly and cleaned up after. I would recommend him to anyone."</p>
+      <footer><b>Aisha M.</b>Kilimani</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="contact-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=1600&q=80" alt="" loading="lazy" />
+  </div>
+  <div class="contact-inner reveal">
+    <h2 id="contact-h">Need a driver today?</h2>
+    <p>Message me on WhatsApp and tell me where you are going. I will reply fast.</p>
+    <a class="btn btn-primary btn-lg" href="https://wa.me/254707528291?text=Hi%20Allan%2C%20I%27d%20like%20to%20book%20a%20ride." target="_blank" rel="noopener">Book on WhatsApp</a>
+    <p class="contact-pay">M-Pesa or cash</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span>&copy; <span id="year">2026</span> Allan Maina &middot; Personal Chauffeur &middot; Nairobi, Kenya</span>
+  <a href="https://wa.me/254707528291" target="_blank" rel="noopener">WhatsApp</a>
+</footer>
+
+<!-- WhatsApp brand mark, kept inline because it is a logo rather than a UI icon -->
+<a class="wa-float" href="https://wa.me/254707528291?text=Hi%20Allan%2C%20I%27d%20like%20to%20book%20a%20ride." target="_blank" rel="noopener" aria-label="Book on WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" fill="#180d09" aria-hidden="true" focusable="false"><path d="M16 3C9 3 3.4 8.6 3.4 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.6-5.6 12.6-12.6S23 3 16 3zm0 22.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.1 1.3 1.3-4-.2-.4a10.2 10.2 0 01-1.6-5.5c0-5.7 4.6-10.3 10.3-10.3S26.3 9.9 26.3 15.6 21.7 25.8 16 25.8zm5.7-7.7c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.4 8.4 0 01-2.5-1.5 9.3 9.3 0 01-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3.6 3.6 0 00-1.1 2.6c0 1.5 1.1 3 1.3 3.2s2.2 3.4 5.3 4.7c2.6 1.1 3.1.9 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+  var sentinel = document.getElementById('nav-sentinel');
+
+  // Nav background state, observed rather than polled on every scroll frame
+  new IntersectionObserver(function (entries) {
+    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
+  }).observe(sentinel);
+
+  function closeMenu() {
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+  }
+
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      closeMenu();
+      burger.focus();
+    }
+  });
+
+  // Scroll reveal, one-shot per element
+  var reveals = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function (el) { io.observe(el); });
+
+  var gallery = document.getElementById('photo-gallery');
+  var galleryItems = Array.from(gallery.querySelectorAll('.g-item'));
+  var galleryTarget = 0;
+  var galleryCurrent = 0;
+  var galleryFrame = 0;
+  var galleryWidth = 0;
+  var gallerySlideWidth = 0;
+  var galleryPointer = null;
+  var galleryLastX = 0;
+  var galleryReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function wrapGalleryPosition(value, span) {
+    return ((value % span) + span) % span;
+  }
+
+  function renderGallery() {
+    var step = gallerySlideWidth + 24;
+    var span = galleryItems.length * step;
+    var ease = galleryReducedMotion.matches ? 1 : 0.15;
+    galleryCurrent += (galleryTarget - galleryCurrent) * ease;
+    if (Math.abs(galleryTarget - galleryCurrent) < 0.1) galleryCurrent = galleryTarget;
+
+    galleryItems.forEach(function (item, index) {
+      var raw = index * step - galleryCurrent + (galleryWidth - gallerySlideWidth) / 2;
+      var x = wrapGalleryPosition(raw + step, span) - step;
+      var distance = x + gallerySlideWidth / 2 - galleryWidth / 2;
+      var scale = distance > 0
+        ? Math.min(1.35, 1 + distance / galleryWidth * 0.35)
+        : Math.max(0.78, 1 + distance / galleryWidth * 0.22);
+      var brightness = Math.max(0.58, 1 - Math.abs(distance / galleryWidth) * 0.22);
+      item.style.transform = 'translate3d(' + x + 'px, -50%, 0) scale(' + scale + ')';
+      item.style.filter = 'brightness(' + brightness + ')';
+    });
+
+    if (Math.abs(galleryTarget - galleryCurrent) > 0.1) {
+      galleryFrame = requestAnimationFrame(renderGallery);
+    } else {
+      galleryFrame = 0;
+    }
+  }
+
+  function resizeGallery() {
+    galleryWidth = gallery.clientWidth;
+    gallerySlideWidth = galleryItems[0].getBoundingClientRect().width;
+    if (galleryFrame) cancelAnimationFrame(galleryFrame);
+    galleryFrame = 0;
+    renderGallery();
+  }
+
+  function moveGalleryBy(amount) {
+    galleryTarget += amount;
+    if (!galleryFrame) galleryFrame = requestAnimationFrame(renderGallery);
+  }
+
+  new ResizeObserver(resizeGallery).observe(gallery);
+  resizeGallery();
+
+  gallery.addEventListener('wheel', function (event) {
+    event.preventDefault();
+    moveGalleryBy((Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY) * 0.8);
+  }, { passive: false });
+
+  gallery.addEventListener('pointerdown', function (event) {
+    galleryPointer = event.pointerId;
+    galleryLastX = event.clientX;
+    gallery.classList.add('is-dragging');
+    gallery.setPointerCapture(event.pointerId);
+  });
+
+  gallery.addEventListener('pointermove', function (event) {
+    if (galleryPointer !== event.pointerId) return;
+    moveGalleryBy(galleryLastX - event.clientX);
+    galleryLastX = event.clientX;
+  });
+
+  function releaseGalleryPointer(event) {
+    if (galleryPointer !== event.pointerId) return;
+    galleryPointer = null;
+    gallery.classList.remove('is-dragging');
+    if (gallery.hasPointerCapture(event.pointerId)) gallery.releasePointerCapture(event.pointerId);
+  }
+
+  gallery.addEventListener('pointerup', releaseGalleryPointer);
+  gallery.addEventListener('pointercancel', releaseGalleryPointer);
+  gallery.addEventListener('keydown', function (event) {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    moveGalleryBy((event.key === 'ArrowRight' ? 1 : -1) * (gallerySlideWidth + 24));
+  });
+
+  var heroCompare = document.getElementById('photo-compare');
+  var heroCompareControl = heroCompare.querySelector('.compare-control');
+  heroCompareControl.addEventListener('input', function () {
+    heroCompare.style.setProperty('--compare-position', heroCompareControl.value + '%');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
